@@ -1,5 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import React from "react";
+import MovieCard from "./MovieCard";
 
 const TrendingMovie = ({ errorMessages, movieList, isLoading }) => {
   return (
@@ -12,11 +13,9 @@ const TrendingMovie = ({ errorMessages, movieList, isLoading }) => {
           ) : errorMessages ? (
             <p>{errorMessages}</p>
           ) : (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {movieList.map((movie) => (
-                <li key={movie.id}>
-                  {movie.title}
-                </li>
+                <MovieCard key={movie.id} movie={movie} />
               ))}
             </ul>
           )}

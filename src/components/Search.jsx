@@ -3,18 +3,17 @@ import { SearchIcon } from "lucide-react";
 
 const Search = ({ search, setSearch }) => {
   return (
-    <div className="relative">
-      <div className="text-white absolute bottom-2 px-3">
-        <SearchIcon />
+    <div className="relative w-full lg:w-96">
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+        <SearchIcon className="w-5 h-5" />
       </div>
+
       <input
-      placeholder="Search through thousands of movies"
-        className="border-1 rounded-xl px-5 bg-gray-800 py-2 focus:border-white focus:border-1 outline-0 border-gray-500 pl-10 w-100"
         type="text"
+        placeholder="Search through thousands of movies"
         value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full bg-gray-800 text-white placeholder-gray-400 border border-gray-600 rounded-xl py-2 pl-10 pr-4 focus:outline-none focus:border-white"
       />
     </div>
   );

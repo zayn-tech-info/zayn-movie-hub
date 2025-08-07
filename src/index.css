@@ -7,13 +7,6 @@ body {
 }
 
 /* Movie Card Styles */
-.movie-card {
-  background-color: rgb(31 41 55);
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  transition: all 0.3s ease;
-}
 
 .movie-card:hover {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
