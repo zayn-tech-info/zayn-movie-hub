@@ -1,7 +1,7 @@
 import React from "react";
 import profilePicture from "../assets/images/pfp.png";
 import Search from "../components/Search";
-import TrendingMovie from "../components/TrendingMovie";
+import Movies from "../components/Movies";
 
 const Home = ({
   setErrorMessages,
@@ -44,7 +44,7 @@ const Home = ({
         </div>
       </div>
 
-      <TrendingMovie
+      <Movies
         errorMessages={errorMessages}
         isLoading={isLoading}
         movieList={movieList}

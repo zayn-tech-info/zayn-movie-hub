@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const TrendingMovie = ({ errorMessages, movieList, isLoading }) => {
+const Movies = ({ errorMessages, movieList, isLoading }) => {
   return (
     <>
       <div>
@@ -25,4 +25,4 @@ const TrendingMovie = ({ errorMessages, movieList, isLoading }) => {
   );
 };
 
-export default TrendingMovie;
+export default Movies;
