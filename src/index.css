@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: rgb(17 24 39);
+  min-height: 100vh;
+  color: white;
+}
+
+/* Movie Card Styles */
+.movie-card {
+  background-color: rgb(31 41 55);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
+
+.movie-card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.movie-card-large {
+  background-color: rgb(31 41 55);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  position: relative;
+}
+
+/* Text Styles */
+.text-primary {
+  color: white;
+  font-weight: 500;
+}
+
+.text-secondary {
+  color: rgb(156 163 175);
+  font-size: 0.875rem;
+}
+
+.text-accent {
+  color: rgb(249 115 22);
+}
+
+.heading-large {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.heading-medium {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: rgb(220 38 38);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgb(185 28 28);
+}
+
+.btn-secondary {
+  background-color: rgb(55 65 81);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(75 85 99);
+}
+
+.btn-icon {
+  background-color: rgb(31 41 55);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-icon:hover {
+  background-color: rgb(55 65 81);
+}
+
+/* Search Input */
+.search-input {
+  background-color: rgb(31 41 55);
+  border: 1px solid rgb(55 65 81);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgb(156 163 175);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 2px rgb(249 115 22);
+  border-color: transparent;
+}
+
+/* Filter Buttons */
+.filter-btn {
+  background-color: rgb(31 41 55);
+  color: rgb(209 213 219);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgb(55 65 81);
+}
+
+.filter-btn:hover {
+  background-color: rgb(55 65 81);
+  color: white;
+}
+
+.filter-btn-active {
+  background-color: rgb(249 115 22);
+  color: white;
+  border-color: rgb(249 115 22);
+}
+
+/* Star Rating */
+.star-rating {
+  color: rgb(250 204 21);
+  font-size: 0.875rem;
+}
+
+/* Navigation */
+.nav-item {
+  color: rgb(156 163 175);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: white;
+  background-color: rgb(31 41 55);
+}
+
+.nav-item-active {
+  color: white;
+  background-color: rgb(31 41 55);
+}
+
+/* Container Styles */
+.container-main {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.container-mobile {
+  max-width: 24rem;
+  margin: 0 auto;
+  background-color: rgb(17 24 39);
+  min-height: 100vh;
+}
+
+/* Card Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .movie-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Featured Section */
+.featured-section {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    rgb(17 24 39),
+    rgb(31 41 55),
+    rgb(17 24 39)
+  );
+}
+
+/* Episode Card */
+.episode-card {
+  background-color: rgb(31 41 55);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+}
+
+.episode-card:hover {
+  background-color: rgb(55 65 81);
+}
+
+/* Badge Styles */
+.badge-genre {
+  background-color: rgb(55 65 81);
+  color: rgb(209 213 219);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-rating {
+  background-color: rgb(22 163 74);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Overlay */
+.overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 0.8),
+    rgb(0 0 0 / 0.2),
+    transparent
+  );
+}
+
+/* Scrollbar Styles */
+.scrollbar-hidden {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}

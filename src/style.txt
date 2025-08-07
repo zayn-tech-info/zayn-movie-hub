@@ -1,0 +1,78 @@
+@layer components {
+  /* Color classes using Tailwind's built-in utility color values */
+
+  /* Backgrounds */
+  .bg-app-background {
+    @apply bg-[#0F0F0F];
+  }
+
+  .bg-app-card {
+    @apply bg-[#1A1A1A];
+  }
+
+  .bg-app-accent {
+    @apply bg-[#2A2A2A];
+  }
+
+  .bg-app-border {
+    @apply bg-[#3F3F3F];
+  }
+
+  /* Text Colors */
+  .text-app-text {
+    @apply text-white;
+  }
+
+  .text-app-dim {
+    @apply text-[#A0A0A0];
+  }
+
+  .text-app-red {
+    @apply text-[#E50914];
+  }
+
+  /* Buttons & UI */
+  .btn-play {
+    @apply bg-[#E50914] hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition;
+  }
+
+  .btn-filter {
+    @apply bg-[#1A1A1A] hover:bg-[#3F3F3F] text-white px-3 py-1 rounded-full text-xs;
+  }
+
+  .episode-card {
+    @apply w-28 h-40 bg-[#2A2A2A] rounded-lg overflow-hidden text-xs flex flex-col justify-end p-2 text-white;
+  }
+
+  .app-screen {
+    @apply min-h-screen bg-[#0F0F0F] px-4 py-6 text-white font-sans;
+  } 
+
+  .search-bar {
+    @apply bg-[#2A2A2A] text-white px-4 py-2 rounded-lg w-full text-sm placeholder-[#A0A0A0] focus:outline-none;
+  }
+
+  .bottom-nav {
+    /* @apply fixed bottom-0 left-0 right-0 bg-[#0F0F0F] bg-opacity-90 flex justify-around py-3 rounded-t-xl; */
+  }
+
+  .nav-icon {
+    @apply text-white text-xl hover:text-[#E50914];
+  }
+
+  .section-title {
+    @apply text-lg font-bold mt-6 mb-2;
+  }
+
+  .header-text {
+    @apply text-xl font-semibold mb-4;
+  }
+
+  .featured-card {
+    @apply bg-[#1A1A1A] rounded-xl overflow-hidden shadow-md;
+  }
+
+  .movie-detail {
+    @apply bg-[#0F0F0F] bg-opacity-95 rounded-2xl px-5 py-6 text-white;
+  }
+}
