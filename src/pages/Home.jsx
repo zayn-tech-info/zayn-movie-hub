@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import profilePicture from "../assets/images/pfp.png";
 import Search from "../components/Search";
 import TrendingMovie from "../components/TrendingMovie";
-const Home = () => {
-    const [errorMessages, setErrorMessages] = useState("");
-
+const Home = ({
+  setErrorMessages,
+  errorMessages,
+  movieList,
+  search,
+  setSearch,
+}) => {
   return (
     <div className="max-w-7xl mx-20 pt-10">
       <div className="">
@@ -22,13 +26,17 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <Search errorMessages={errorMessages} setErrorMessages={setErrorMessages} />
+          <Search
+            errorMessages={errorMessages}
+            setErrorMessages={setErrorMessages}
+            search={search}
+            setSearch={setSearch}
+          />
           <img src={profilePicture} alt="Profile Picture" />
         </div>
       </div>
 
-
-      <TrendingMovie errorMessages={errorMessages} />
+      <TrendingMovie errorMessages={errorMessages} movieList={movieList} />
     </div>
   );
 };
