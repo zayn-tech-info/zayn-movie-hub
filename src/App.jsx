@@ -6,6 +6,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
   const [movieList, setMovieList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const API_BASE_URL = "https://api.themoviedb.org/3";
   const API_KEY = import.meta.env.VITE_TMBD_API_KEY;
@@ -21,6 +22,8 @@ const App = () => {
     [API_KEY]
   );
   const fetchMovies = useCallback(async () => {
+    setIsLoading(true)
+    setErrorMessages("")
     try {
       const endPoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
       const response = await fetch(endPoint, API_OPTIONS);
@@ -41,6 +44,9 @@ const App = () => {
     } catch (error) {
       console.log(`Error fetching movies: ${error}`);
       setErrorMessages(`API Error: ${error.message}`);
+    }finally{
+      setErrorMessages(null)
+      setIsLoading(false)
     }
   }, [API_BASE_URL, API_OPTIONS, setErrorMessages]);
 
@@ -61,6 +67,8 @@ const App = () => {
               movieList={movieList}
               setSearch={setSearch}
               search={search}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
             />
           }
         />

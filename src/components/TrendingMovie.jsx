@@ -1,8 +1,28 @@
+import { CircularProgress } from "@mui/material";
 import React from "react";
 
-const TrendingMovie = ({ errorMessages }) => {
+const TrendingMovie = ({ errorMessages, movieList, isLoading }) => {
   return (
-    <>{errorMessages && <p className="text-red-500">{errorMessages}</p>}</>
+    <>
+      <div>
+        {errorMessages && <p className="text-red-500">{errorMessages}</p>}
+        <div className="justify-center mt-20">
+          {isLoading ? (
+            <CircularProgress disableShrink />
+          ) : errorMessages ? (
+            <p>{errorMessages}</p>
+          ) : (
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {movieList.map((movie) => (
+                <li key={movie.id}>
+                  {movie.title}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 

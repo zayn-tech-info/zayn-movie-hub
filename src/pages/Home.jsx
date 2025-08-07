@@ -8,6 +8,7 @@ const Home = ({
   movieList,
   search,
   setSearch,
+  isLoading
 }) => {
   return (
     <div className="max-w-7xl mx-20 pt-10">
@@ -36,7 +37,7 @@ const Home = ({
         </div>
       </div>
 
-      <TrendingMovie errorMessages={errorMessages} movieList={movieList} />
+      <TrendingMovie errorMessages={errorMessages} isLoading={isLoading} movieList={movieList} />
     </div>
   );
 };
