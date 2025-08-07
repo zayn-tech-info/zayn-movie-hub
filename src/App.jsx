@@ -21,11 +21,11 @@ const App = () => {
     }),
     [API_KEY]
   );
-  const fetchMovies = useCallback(async () => {
+  const fetchMovies = useCallback(async (query) => {
     setIsLoading(true)
     setErrorMessages("")
     try {
-      const endPoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      const endPoint = query ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}` :`${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
       const response = await fetch(endPoint, API_OPTIONS);
 
       if (!response.ok) {
@@ -51,8 +51,8 @@ const App = () => {
   }, [API_BASE_URL, API_OPTIONS, setErrorMessages]);
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    fetchMovies(search);
+  }, [search, fetchMovies]);
 
   return (
     <>
