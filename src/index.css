@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
-}
 body {
   background-color: rgb(17 24 39);
   min-height: 100vh;
