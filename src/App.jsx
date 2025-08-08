@@ -2,13 +2,14 @@ import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDebounce } from "react-use";
 import Home from "./pages/Home";
+import { updateSearchCount } from "./appwrite";
 
 const App = () => {
   const [search, setSearch] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   useDebounce(() => setDebouncedSearchTerm(search), 900, [search]);
 
@@ -48,11 +49,22 @@ const App = () => {
           return;
         }
         setMovieList(data.results);
+
+        if (query && data.results.length > 0) {
+          try {
+            await updateSearchCount(query, data.results[0]);
+          } catch (appwriteError) {
+            console.warn(
+              "Failed to update search count:",
+              appwriteError.message
+            );
+            // Don't break movie fetching if Appwrite fails
+          }
+        }
       } catch (error) {
         console.log(`Error fetching movies: ${error}`);
         setErrorMessages(`API Error: ${error.message}`);
       } finally {
-        setErrorMessages(null);
         setIsLoading(false);
       }
     },
